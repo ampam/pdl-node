@@ -1,0 +1,66 @@
+<?php
+/**
+ *  {{companyName}} Generated File with Pdl
+ *  {{project}}
+ *  @version: {{version}}
+ *
+ *      class Com.Mh.Ds.Domain.Data.{{rowClass}}
+ */
+
+namespace Com\Mh\Ds\Domain\Data;
+
+use Com\Mh\Ds\Infrastructure\Data\Row;
+/**
+ * @class {{rowClass}}
+ * @extends Row
+ * @package Com\Mh\Ds\Domain\Data
+ *
+{{#fieldsInfo}}
+ * @property {{phpType}} {{camelCase}}
+{{/fieldsInfo}}
+ *
+ */
+class {{rowClass}} extends Row
+{
+
+    const TableName = '{{tableName}}';
+    const DbName = '{{dbName}}';
+    const FullTableName = '{{dbName}}.{{tableName}}';
+
+    /**
+     * {{rowClass}} constructor.
+     *
+     * @param array $arguments
+     */
+    function __construct( ...$arguments )
+    {
+        $this->_propertyAttributes = [];
+{{#fieldsInfo}}
+{{#if phpAttributes}}
+        $this->_propertyAttributes[ '{{camelCase}}' ] = {{{phpAttributes}}};
+{{/if}}
+{{/fieldsInfo}}
+
+        parent::__construct( ...$arguments );
+    }
+
+    /**
+     * @return {{whereClass}}
+     */
+    public static function where()
+    {
+        $result = new {{whereClass}}( null );
+        return $result;
+    }
+
+    /**
+     * @return {{fieldListClass}}
+     */
+    public static function fieldList()
+    {
+        $result = new {{fieldListClass}}( null );
+        return $result;
+    }
+
+}
+

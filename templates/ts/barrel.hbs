@@ -1,0 +1,18 @@
+/**
+ *  {{companyName}} Generated File with Pdl
+ *  {{project}}
+ *  @version: {{version}}
+ *
+ *   Barrel File for:
+{{#each classes}}
+{{#this}}
+ *       {{classNode.fullName}}
+{{/this}}
+{{/each}}
+ */
+
+{{#each classes}}
+{{#this}}
+export * from './{{classNode.fileInfo.name}}';
+{{/this}}
+{{/each}}

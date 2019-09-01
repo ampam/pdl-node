@@ -1,0 +1,19 @@
+/**
+*  {{companyName}} Generated File with Pdl
+*  {{project}}
+*  @version: {{version}}
+*/
+
+{{#classes}}
+require( './{{classNode.name}}' );
+{{/classes}}
+
+exports = exports || ( module && module.exports
+    ? module.exports
+    : {} );
+
+exports = exports || {};
+{{#classes}}
+exports.{{classNode.name}} = {{classNode.fullName}};
+{{/classes}}
+

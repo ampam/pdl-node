@@ -1,0 +1,80 @@
+<?php
+/**
+ *  {{companyName}} Generated File with Pdl
+ *  {{project}}
+ *  @version: {{version}}
+ *
+ *   Column List Traits for row {{name}}
+ *   {{orderByClass}}
+ */
+
+namespace Com\Mh\Ds\Domain\Data;
+
+use Pam\Server\Framework\Infrastructure\Db\Sql\Column;
+use Pam\Server\Framework\Infrastructure\Db\Sql\OrderByStatement;
+
+/**
+ * Class {{orderByClass}}
+ * @package Com\Mh\Ds\Domain\Data
+ */
+class {{orderByClass}} extends OrderByStatement
+{
+    use {{columnsListTraits}};
+
+    const FullTableName = '{{dbName}}.{{tableName}}';
+
+    public static $rowClass = {{rowClass}}::class;
+
+
+    /**
+     * {{orderByClass}} constructor.
+     *
+     * @param {{whereClass}}|null $where
+     * @param {{fieldListClass}}|null $fieldList
+     */
+    public function __construct( {{whereClass}} $where = null, {{fieldListClass}} $fieldList = null )
+    {
+        parent::__construct( $where, $fieldList );
+
+    }
+
+    /**
+     * @param $column
+     *
+     * @param $param
+     *
+     * @return $this
+     */
+    protected function _useColumn( $column, /** @noinspection PhpUnusedParameterInspection */ $param = null )
+    {
+        $columnString = Column::toString( $column );
+        return $this->_add( $columnString );
+    }
+
+    /**
+     * @return string
+     */
+    public function getRowClass()
+    {
+        return self::$rowClass;
+    }
+
+
+    /**
+     * @return {{rowClass}}
+     */
+    public function _loadRow()
+    {
+        return parent::_loadRow();
+    }
+
+    /**
+     * @param boolean $byDbId
+     *
+     * @return {{rowClass}}[]
+     */
+    public function _loadRows( $byDbId = false )
+    {
+        return parent::_loadRows( $byDbId );
+    }
+}

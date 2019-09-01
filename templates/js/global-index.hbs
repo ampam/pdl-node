@@ -1,0 +1,26 @@
+/**
+ *  {{companyName}} Generated File with Pdl
+ *  {{project}}
+ *  @version: {{version}}
+ *
+ *   Global Index
+ *
+ */
+
+{{#globalIndexClasses}}
+{{#classes}}
+require( './{{classNode.path}}' );
+{{/classes}}
+{{/globalIndexClasses}}
+
+{{#globalIndexClasses}}
+module.exports.ns{{namespace}} = {
+{{#classes}}
+    /** @type {{ brace-wrap classNode.fullName}} */
+    {{classNode.name}}: {{classNode.fullName}}{{^last}},{{/last}}
+{{/classes}}
+};
+
+{{/globalIndexClasses}}
+
+

@@ -1,0 +1,34 @@
+<?php
+/**
+ *  {{companyName}} Generated File with Pdl
+ *  {{project}}
+ *  @version: {{version}}
+ *
+ *   Column definition for row {{rowClass}}
+ *   {{columnsDefinitionClass}}
+ */
+
+namespace Com\Mh\Ds\Domain\Data;
+
+/**
+ * @class {{columnsDefinitionClass}}
+ * @package Com\Mh\Ds\Domain\Data
+ *
+ */
+class {{columnsDefinitionClass}}
+{
+
+    const FullTableName = '{{dbName}}.{{tableName}}';
+
+{{#fieldsInfo}}
+    const {{pascalCase}} = '{{original}}';
+{{/fieldsInfo}}
+
+    public static $columns = [
+{{#fieldsInfo}}
+        self::{{pascalCase}} => '{{dbType}}',
+{{/fieldsInfo}}
+    ];
+
+    public static $dbId = self::{{ primaryKeyPascalCase}};
+}

@@ -1,0 +1,122 @@
+<?php
+/**
+ *  {{companyName}} Generated File with Pdl
+ *  {{project}}
+ *  @version: {{version}}
+ *
+ *   Column List Traits for row {{name}}
+ *   {{fieldListClass}}
+ */
+
+namespace Com\Mh\Ds\Domain\Data;
+
+use Exception;
+use Pam\Server\Framework\Infrastructure\Db\Sql\Column;
+use Pam\Server\Framework\Infrastructure\Db\Sql\FieldList;
+
+/**
+ * @class {{fieldListClass}}
+ * @extends ColumnList
+ * @package Com\Mh\Ds\Domain\Data
+ *
+ */
+class {{fieldListClass}} extends FieldList
+{
+    use {{columnsListTraits}};
+
+    const FullTableName = '{{dbName}}.{{tableName}}';
+
+    public static $rowClass = {{rowClass}}::class;
+    public static $fieldListClass = self::class;
+    public static $orderByClass = {{orderByClass}}::class;
+
+    /**
+     * {{fieldListClass}} constructor.
+     *
+     * @param {{whereClass}} $where
+     */
+    public function __construct( {{whereClass}} $where = null )
+    {
+        parent::__construct( $where );
+    }
+
+
+    /**
+     * @param $column
+     *
+     * @param $param
+     *
+     * @return $this
+     */
+    protected function _useColumn( $column, /** @noinspection PhpUnusedParameterInspection */ $param = null )
+    {
+        $columnString = Column::toString( $column );
+        return $this->_add( $columnString );
+    }
+    /**
+     * @param int|null $dbId
+     *
+     * @return {{rowClass}}
+     */
+    public function _loadRow( $dbId = null )
+    {
+        /** @var {{rowClass}} $result */
+        $result = $dbId !== null
+            ? parent::_traitLoadRowById( $dbId, $this )
+            : $this->_loadRowWhere();
+
+        return $result;
+    }
+
+    /**
+     *
+     * @return {{rowClass}}
+     * @throws Exception
+     */
+    public function _loadRowWhere()
+    {
+        /** @var {{rowClass}} $result */
+        $result = parent::_loadRowWhere();
+        return $result;
+    }
+
+    /**
+     * @param bool $byDbId
+     *
+     * @return {{rowClass}}[]
+     */
+    public function _loadRows( $byDbId = false )
+    {
+        /** @var {{rowClass}}[] $result */
+        $result = parent::_traitLoadRows( $this->where, $this, $byDbId );
+        return $result;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getRowClass()
+    {
+        return self::$rowClass;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderByClass()
+    {
+        return self::$orderByClass;
+    }
+
+    /**
+     * @return {{orderByClass}}
+     */
+    public function _orderBy()
+    {
+        /** @var {{orderByClass}} $result */
+        $result = parent::_orderBy();
+        return $result;
+    }
+
+}

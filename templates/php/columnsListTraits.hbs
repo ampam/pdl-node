@@ -1,0 +1,39 @@
+<?php
+/**
+ *  {{companyName}} Generated File with Pdl
+ *  {{project}}
+ *  @version: {{version}}
+ *
+ *   Column List Traits for row {{name}}
+ *   {{columnsListTraits}}
+ */
+
+namespace Com\Mh\Ds\Domain\Data;
+
+use Com\Mh\Ds\Infrastructure\Data\ColumnsBase;
+
+
+/**
+ * @class {{columnsListTraits}}
+ * @package Com\Mh\Ds\Domain\Data
+ *
+ */
+trait {{columnsListTraits}}
+{
+    use ColumnsBase;
+
+
+{{#fieldsInfo}}
+    /**
+     * @param $param
+     *
+     * @return $this
+     */
+    public function {{camelCase}}( $param = null )
+    {
+        return $this->_useColumn( {{../columnsDefinitionClass}}::{{pascalCase}}, $param );
+    }
+
+{{/fieldsInfo}}
+
+}

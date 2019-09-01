@@ -1,0 +1,18 @@
+/**
+ *  {{companyName}} Generated File with Pdl
+ *  {{project}}
+ *  @version: {{version}}
+ *
+ *      class {{classNode.fullName}}
+ *      Typescript definition file
+ */
+
+export module {{namespace}}
+{
+    export interface {{classNode.name}} {{#if parentClass}}extends {{parentClass.fullClasname}}{{/if}}
+    {
+    {{#properties}}
+        {{name}}: {{classNode.name}};
+    {{/properties}}
+    }
+}
